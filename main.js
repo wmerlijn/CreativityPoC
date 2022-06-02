@@ -3,7 +3,8 @@ canvas.width = window.innerWidth - 60;
 canvas.height= 400;
 
 let context = canvas.getContext("2d");
-context.fillStyle = "white";
+let start_background_color = "white";
+context.fillStyle = start_background_color;
 context.fillRect(0, 0, canvas.width, canvas.height);
 
 let draw_color = "black";
@@ -52,4 +53,10 @@ function stop(event) {
     }
     event.preventDefault();
 
+}
+
+function clear_canvas() {
+    context.fillStyle = start_background_color;
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.fillRect(0, 0, canvas.width, canvas.height);
 }
