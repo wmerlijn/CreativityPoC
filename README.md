@@ -8,9 +8,12 @@ Deze POC is gemaakt om aan te tonen dat een knop die steeds moeilijker in te dru
 ---
 
 ## Installation
-- Stap 1:
-- Stap 2:
-- Stap 3:
+Deze applicatie vereist geen extra libraries of extensies en kan met basic HTML, CSS en Java al gestart worden.
+
+- Stap 1: Clone de github https://github.com/wmerlijn/CreativityPoC.git
+- Stap 2: Visual studio code -> Clone Git Repository -> Paste hier de link
+- Stap 3: Sla de repository lokaal op je computer op
+
 
 
 ---
