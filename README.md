@@ -4,7 +4,16 @@
 
 Een Proof of Concept voor de interactie in de applicatie.
 Deze POC is gemaakt om aan te tonen dat een knop die steeds moeilijker in te drukken is frustrerend kan werken voor de gebruiker.
+Bij elke keer drukken zal de knop 0.1 seconden langer er over doen om weer clickbaar te zijn.
+```js
+    setTimeout(enableButton, clickCounter * 100);
+```
+Dus bij bijvoorbeeld 23x drukken dan is de knop uitgeschakeld voor 2.3 seconden.
 
+De animatie speelt ook af aan de hand van het aantal x clicken. 50% van de tijd gaat de knop naar beneden. De andere 50% gaat hij weer terug om hoog.
+```js
+    button.style.setProperty("--transitionTime", (clickCounter * 50) + "ms")
+```
 ---
 
 ## Installation
