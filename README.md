@@ -1,6 +1,6 @@
 # README Knoppen POC
 
-**Version 1.0**
+**Version 1.1**
 
 Een Proof of Concept voor de interactie in de applicatie.
 Deze POC is gemaakt om aan te tonen dat een knop die steeds moeilijker in te drukken is frustrerend kan werken voor de gebruiker.
