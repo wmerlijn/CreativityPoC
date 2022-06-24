@@ -29,7 +29,7 @@ Deze applicatie vereist geen extra libraries of extensies en kan met basic HTML,
 ## Bugs & Next steps
 De code werkt momenteel precies zoals hij bedoeld is. Er zijn geen bugs in de code die opgelost moeten worden.
 
-Wil je de code uitbreiden dan zou je eventueel een functie kunnen toevoegen die de cursor veranderd zodra de knop is ingedrukt. 
+Wil je de code uitbreiden met meer stimulatie zoals bijvoorbeeld geluid, trillingen etc. dan is hier waar de knop uitgeschakeld word en je dus de functie kan aanpassen. Voor de rest van de code staat ook in comments // erbij wat het stukje code doet. Eventueel bij vragen kan je mij mailen.
 
 ```js
 function disableButton() {
@@ -47,6 +47,11 @@ function disableButton() {
 Hier word de duratie van de knop die uitgeschakeld word bepaald en hier moet je rekening mee houden bij het toevoegen van de nieuwe functie.
 
 ---
+
+Ideeën voor uitbreiding:
+1. Verwerken in een applicatie, maak ipv van clicken alles touch.
+2. Verwerk de knop in een micro game waarbij je frustratie wilt overbrengen.
+3. Voeg geluid toe dat doet aanduiden dat de timer bijna afgelopen is om de frustratie intenser te maken
 
 ## Contributers
 
