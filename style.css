@@ -14,16 +14,18 @@
     border: none;
     border-radius: 75px;
     box-shadow: 0 45px #999;
+   
   }
   
   .button:hover {background-color: #3e8e41}
-  
+
+
 .button.disabled {
 
     background-color: #3e8e41;
     box-shadow: 0 25px #666;
     transform: translateY(4px);
-    
+    cursor: not-allowed;
   }
 
   p{
