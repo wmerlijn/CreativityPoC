@@ -1,84 +1,74 @@
-const canvas = document.getElementById("canvas");
-canvas.width = window.innerWidth - 60;
-canvas.height= 400;
+let clickCounter = 0;
 
-let context = canvas.getContext("2d");
-let start_background_color = "white";
-context.fillStyle = start_background_color;
-context.fillRect(0, 0, canvas.width, canvas.height);
-
-let draw_color = "black";
-let draw_width = "2";
-let is_drawing = false;
-
-let restore_array = [];
-let index = -1;
-
-function change_color(element) {
-    draw_color = element.style.background;
+//wanneer de 20 seconden voorbij zijn dan gaat het naar de functie
+setTimeout(timer, 21000)
+//doorverwijzing naar het volgende scherm
+function timer() {
+  window.location.href = "gameover.html";
 }
 
-canvas.addEventListener("touchstart", start, false);
-canvas.addEventListener("touchmove", draw, false);
-canvas.addEventListener("mousedown", start, false);
-canvas.addEventListener("mousemove", draw, false);
-
-canvas.addEventListener("touchend", stop, false);
-canvas.addEventListener("mouseup", stop, false);
-canvas.addEventListener("mouseout", stop, false);
-
-function start(event) {
-    is_drawing = true;
-    context.beginPath();
-    context.moveTo(event.clientX - canvas.offsetLeft,
-         event.clientY - canvas.offsetTop);
-    event.preventDefault();
+//terug naar de microgame
+function back() {
+  console.log("test");
+  window.location.href = "index.html";
 }
 
-function draw(event) {
-    if ( is_drawing ) {
-        context.lineTo(event.clientX - canvas.offsetLeft,
-             event.clientY - canvas.offsetTop);
-             context.strokeStyle = draw_color;
-             context.lineWidth = draw_width;
-             context.lineCap = "round";
-             context.lineJoin = "round";
-             context.stroke();
-    }
-    event.preventDefault();
-}
 
-function stop(event) {
-    if ( is_drawing ) {
-        context.stroke();
-        context.closePath;
-        is_drawing = false;
-    }
-    event.preventDefault();
 
-    if (event.type != 'mouseout' ) {
-        restore_array.push(context.getImageData(0, 0, canvas.width, canvas.height));
-        index += 1;
-    }
-    console.log(restore_array);
-    
-}
+//timer gehaald van internet
+var timeleft = 20;
+var downloadTimer = setInterval(function(){
+  if(timeleft <= 0){
+    clearInterval(downloadTimer);
+    document.getElementById("countdown").innerHTML = "Finished";
+  } else {
+    document.getElementById("countdown").innerHTML = timeleft + " seconds remaining";
+  }
+  timeleft -= 1;
+}, 1000);
 
-function clear_canvas() {
-    context.fillStyle = start_background_color;
-    context.clearRect(0, 0, canvas.width, canvas.height);
-    context.fillRect(0, 0, canvas.width, canvas.height);
 
-    restore_array = [];
-    index = -1;
-}
 
-function undo_last() {
-    if ( index <0 ) {
-        clear_canvas();
-    } else {
-        index -= 1;
-        restore_array.pop();
-        context.putImageData(restore_array[index], 0, 0);
-    }
-}
+//bijhouden hoevaak de knop is ingedrukt
+function knopClick() {
+    console.log("test");
+    clickCounter++;
+    console.log(clickCounter);
+    document.getElementById("clicks").innerHTML = clickCounter;
+    if(!button.disabled){ disableButton(); }
+
+};
+
+
+
+//Selecteren van de button
+const button = document.querySelector('#button');
+//functie die button uitschakeld
+
+function disableButton() {
+    clearTimeout(button.classremover)
+   console.log("Disable");
+    button.disabled = true;
+    //Button word steeds langer niet clickbaar
+    setTimeout(enableButton, clickCounter * 100);
+    button.classList.add("disabled");
+    button.classremover=setTimeout(()=>{
+        button.classList.remove("disabled");
+    },clickCounter*50)
+};
+
+
+
+//functie de de button weer aanzet
+function enableButton() {
+    console.log("Enable");
+    button.disabled = false;
+    button.style.setProperty("--transitionTime", (clickCounter * 50) + "ms")
+
+  };
+
+
+
+//Uitschakelen button bij click
+
+button.addEventListener('click', knopClick);
